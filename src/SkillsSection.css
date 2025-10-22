@@ -1,0 +1,92 @@
+/* src/SkillsSection.css */
+
+.skills-section {
+  padding: 80px 0;
+  background-color: #ffffff; /* White background */
+}
+
+.skills-content {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Left Text Column */
+.skills-text {
+  flex: 1;
+  max-width: 45%;
+}
+
+/* Reuse titles from ServicesSection.css, but align them left */
+.skills-text .section-title,
+.skills-text .section-subtitle {
+    text-align: left;
+}
+
+.skills-text .section-title {
+    margin-top: 0;
+}
+
+/* Right Skills Column */
+.skills-bars {
+  flex: 1;
+  max-width: 55%;
+}
+
+.skill-item {
+  margin-bottom: 25px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333;
+}
+
+.skill-percentage {
+    font-weight: 700;
+    color: #0077b6; /* Primary accent */
+}
+
+/* --- Skill Bar Visuals --- */
+.skill-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0; /* Light grey track */
+  border-radius: 5px;
+  overflow: hidden; /* Important for the smooth fill animation */
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background-color: #0077b6; /* Vibrant Cyan/Turquoise fill color */
+  width: 0%; /* Start at 0, React sets the final width */
+  transition: width 2s ease-out; /* The crucial animation property */
+}
+
+/* The class 'animate-fill' is added by React when 'inView' is true, 
+   but the final width is set inline in the component logic. */
+/* .skill-bar-fill.animate-fill is not strictly needed since the width is inline, 
+   but it serves as good documentation. */
+
+
+/* --- Media Queries for Mobile Responsiveness --- */
+@media (max-width: 992px) {
+  .skills-content {
+    flex-direction: column; /* Stack columns vertically */
+  }
+
+  .skills-text, .skills-bars {
+    max-width: 100%;
+    width: 100%;
+  }
+  .skills-text {
+    text-align: center;
+  }
+  .skills-text .section-title,
+  .skills-text .section-subtitle {
+    text-align: center;
+  }
+}

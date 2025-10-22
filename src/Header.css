@@ -1,0 +1,200 @@
+/* src/Header.css */
+
+/* The main header bar (sticky top) */
+.header {
+  width: 100%;
+  background-color: #ffffff;
+  /* Clean White Background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  /* Subtle shadow for depth */
+  position: fixed;
+  /* Makes the header sticky */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: top 0.3s ease-in-out;
+}
+
+.header.is-hidden {
+  /* Move the header up by more than its height (e.g., 100px) */
+  top: -100px; 
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  /* Standard professional header height */
+}
+
+/* --- Logo Styling --- */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.logo-text {
+  color: #333;
+  /* Dark text */
+  letter-spacing: 1px;
+}
+
+.logo-icon {
+  color: #00bcd4;
+  /* Vibrant Cyan/Turquoise accent color */
+  font-size: 20px;
+  margin: 0 4px;
+}
+
+.logo-subtext {
+  color: #555;
+  /* Slightly lighter for contrast */
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+/* --- Navigation Styling --- */
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+}
+
+.nav-menu li {
+  margin: 0 15px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #555;
+  /* Neutral grey link color */
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #0077b6;
+  /* Accent color on hover */
+}
+
+/* --- CTA Button Styling --- */
+.cta-button {
+  background-color: #0077b6;
+  /* Primary Navy Blue/Deep Teal */
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  /* Cesis look: slight lift on hover */
+  box-shadow: 0 4px 6px rgba(0, 119, 182, 0.1);
+}
+
+.cta-button:hover {
+  background-color: #005f99;
+  /* Darken for hover effect */
+  box-shadow: 0 6px 10px rgba(0, 119, 182, 0.2);
+}
+
+/* Hide mobile icon on desktop */
+.mobile-menu-icon {
+  display: none;
+}
+
+/* --- Basic Mobile Responsiveness for Header --- */
+/* On smaller screens, hide the desktop navigation and show the mobile icon */
+@media (max-width: 992px) {
+
+  /* Hide the desktop navigation */
+  .nav-menu {
+    /* This hides the menu initially */
+    display: none;
+
+    /* Positioning and look for when it is shown */
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    /* Note: We will NOT use height: 0 and overflow: hidden */
+    /* because 'display: none' is simpler for visibility. */
+  }
+
+  .desktop-cta {
+    display: none;
+  }
+
+  .nav-menu.is-open {
+    /* Override display: none! This is the fix. */
+    display: block;
+
+    /* Add padding and structure for the visible menu */
+    padding: 20px 0;
+  }
+
+  .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+
+  .nav-menu a {
+    display: block;
+    padding: 10px 0;
+    font-size: 18px;
+  }
+
+  /* Hide the desktop navigation and CTA on small screens */
+  .nav-menu,
+  .desktop-cta {
+    display: none;
+  }
+
+  /* Show the mobile icon */
+  .mobile-menu-icon {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001;
+    /* Ensure icon is above the menu itself */
+  }
+
+  /* Force the desktop nav to be visible only when mobile is NOT active */
+  /* This ensures it displays correctly on desktop and is hidden when collapsed on mobile */
+  @media (min-width: 993px) {
+    .nav-menu {
+      display: flex;
+      /* Re-enable Flexbox for desktop view */
+      position: static;
+      height: auto;
+      min-height: auto;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .desktop-cta {
+      display: block;
+      /* Re-enable the CTA button */
+    }
+
+    .nav-menu ul {
+      flex-direction: row;
+    }
+  }
+}

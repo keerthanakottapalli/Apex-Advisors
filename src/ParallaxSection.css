@@ -1,0 +1,50 @@
+/* src/ParallaxSection.css */
+
+.parallax-container {
+    min-height: 600px;
+    
+    /* 1. Set the background image */
+    background-image: url('./assets/parallax.png'); /* REPLACE with your image path */
+    background-attachment: fixed;
+    
+    /* 3. Positioning and Sizing */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Center text/content within */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure content is above any other background element */
+}
+
+/* Style for the overlay content moving over the parallax background */
+.parallax-overlay-content {
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.parallax-overlay-content h2 {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.parallax-overlay-content p {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+/* --- Mobile Fix for Parallax --- */
+/* Parallax effects often look bad or don't work on mobile. 
+   It's best to disable 'fixed' attachment and let it scroll normally. */
+@media only screen and (max-device-width: 1366px) {
+    .parallax-container {
+        background-attachment: scroll; /* Change to scroll for mobile devices */
+    }
+}

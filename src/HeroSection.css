@@ -1,0 +1,115 @@
+/* src/HeroSection.css */
+
+.hero-section {
+    padding: 100px 0; 
+    min-height: 90vh; 
+    display: flex;
+    align-items: center; /* Vertically centers the content block */
+    background-image: url("./assets/digital-dashboard.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/* --- Left Text Column --- */
+.hero-text-content {
+    flex: 1; /* Takes up equal space initially (50%) */
+    max-width: 60%; 
+    margin: 0; /* Ensures it is aligned left, not centered */
+    text-align: left; /* Aligns all internal text left */
+}
+
+/* --- Right Visual Column --- */
+.hero-visual {
+    flex: 1; /* Takes up the other 50% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Typography and Highlight --- */
+.hero-headline {
+    font-size: 60px; /* Large, bold headline */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    /* Dark text for visibility on light background */
+    color: #1975a7; 
+}
+
+.hero-subheadline {
+    font-size: 20px;
+    font-weight: 400;
+    /* Readability text color */
+    color: #fdfdfd; 
+    margin-bottom: 40px;
+}
+
+/* --- CTA Buttons Styling --- */
+.hero-ctas {
+    display: flex;
+    gap: 20px; 
+    justify-content: flex-start; /* Aligns buttons to the left */
+}
+
+.secondary-cta {
+    background-color: transparent;
+    border: 2px solid #0077b6; /* Primary color border */
+    color: #0077b6; /* Primary color text */
+    box-shadow: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary-cta:hover {
+    background-color: #e6f3fa; /* Very light blue background on hover */
+    color: #005f99;
+}
+
+/* --- Dashboard Image Styling --- */
+.dashboard-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+}
+
+/* --- Media Queries for Mobile Responsiveness --- */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 30px;
+    }
+
+    .hero-text-content,
+    .hero-visual {
+        max-width: 100%; /* Use full width on mobile */
+        width: 100%;
+    }
+    
+    .hero-text-content {
+        text-align: center; /* Center the text on mobile */
+        padding: 0 15px;
+    }
+
+    .hero-headline {
+        font-size: 40px; /* Smaller headline on mobile */
+    }
+
+    .hero-subheadline {
+        font-size: 18px;
+    }
+
+    .hero-ctas {
+        justify-content: center; /* Center buttons on mobile */
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-ctas {
+        flex-direction: column; /* Stack buttons on very small screens */
+        gap: 10px;
+    }
+}
